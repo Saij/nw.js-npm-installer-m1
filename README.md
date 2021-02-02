@@ -1,6 +1,6 @@
 # nw [![Build Status](http://img.shields.io/travis/nwjs/npm-installer.svg)](https://travis-ci.org/nwjs/npm-installer)
 
-An installer for [NW.js](https://nwjs.io).
+An installer for [NW.js](https://nwjs.io). **Modified to run on Apple M1 Architecture**.
 
 > NW.js is a runtime-environment based on Chromium and Node.js. It is used to build desktop applications that run on Windows, OSX, and Linux.
 
