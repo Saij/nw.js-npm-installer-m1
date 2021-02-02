@@ -38,17 +38,10 @@ var urlBase = process.env.npm_config_nwjs_urlbase || process.env.NWJS_URLBASE ||
 var buildTypeSuffix = buildType === 'normal' ? '' : ('-' + buildType);
 var platform = process.env.npm_config_nwjs_platform || process.env.NWJS_PLATFORM || process.platform;
 
-// Determine download url
-switch (platform) {
-  case 'win32':
-    url = urlBase + version + '/nwjs' + buildTypeSuffix + '-v' + version + '-win-' + arch +'.zip';
-    break;
-  case 'darwin':
-    url = urlBase + version + '/nwjs' + buildTypeSuffix + '-v' + version + '-osx-' + arch + '.zip';
-    break;
-  case 'linux':
-    url = urlBase + version + '/nwjs' + buildTypeSuffix + '-v' + version + '-linux-' + arch + '.tar.gz';
-    break;
+if (process.platform === 'darwin' && process.arch === 'arm64') {
+  url = 'http://dl.nwjs.io/live-build/nwjs-sdk-v0.50.1-osx-arm64.zip';
+} else {
+  console.error(chalk.bold.red('This build of nw.js only works on M1 macs'));
 }
 
 function logError(e) {
